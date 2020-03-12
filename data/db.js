@@ -5,7 +5,7 @@ const db = knex(knexConfig.development);
 module.exports = {
   find,
   findById,
-  insert,
+  add,
   update,
   remove,
 };
@@ -20,7 +20,7 @@ function findById(id) {
     .first();
 }
 
-function insert(user) {
+function add(user) {
   return db('users')
     .insert(user)
     .then(ids => ({ id: ids[0] }));
